@@ -525,7 +525,7 @@
     }
 
 async function loadAndRender() {
-      const urlObj = new URL('metrics.json', window.location.href);
+const urlObj = new URL('productivity/metrics.json', window.location.href);
       // anti-cache: força download da versão mais recente
       urlObj.searchParams.set('t', String(Date.now()));
       const url = urlObj.toString();
