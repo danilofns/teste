@@ -525,7 +525,10 @@
     }
 
 async function loadAndRender() {
-      const url = new URL('metrics.json', window.location.href).toString();
+      const urlObj = new URL('metrics.json', window.location.href);
+      // anti-cache: força download da versão mais recente
+      urlObj.searchParams.set('t', String(Date.now()));
+      const url = urlObj.toString();
       let metrics = null;
       try {
         const res = await fetch(url, { cache: 'no-store' });
