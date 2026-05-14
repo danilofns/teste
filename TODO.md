@@ -8,6 +8,8 @@
 - [x] Criar `docs/productivity/index.html` (página estática responsiva; carrega metrics.json; renderiza 7 gráficos + 3 tabelas de ranking)
 
 - [x] Validar localmente: `python docs/productivity/collect_metrics.py` (checagem sintática) + `metrics.json` mock
+- [ ] Rodar sanity check completo com token real e revisar console no navegador
+
 
 - [x] Rodar sanity check: JSON válido + console sem erros (ao menos com um metrics.json mock)
 
