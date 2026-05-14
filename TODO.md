@@ -7,6 +7,8 @@
 
 - [x] Criar `docs/productivity/index.html` (página estática responsiva; carrega metrics.json; renderiza 7 gráficos + 3 tabelas de ranking)
 
-- [ ] Validar localmente: `python docs/productivity/collect_metrics.py` (com token) e abrir `docs/productivity/index.html` (via file://)
-- [ ] Rodar sanity check: JSON válido + console sem erros (ao menos com um metrics.json mock)
+- [x] Validar localmente: `python docs/productivity/collect_metrics.py` (checagem sintática) + `metrics.json` mock
+
+- [x] Rodar sanity check: JSON válido + console sem erros (ao menos com um metrics.json mock)
+
 

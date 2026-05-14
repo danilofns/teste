@@ -255,7 +255,8 @@ def build_pr_opened_aggregates(repo: Repository) -> Dict[str, PersonAgg]:
     persons: Dict[str, PersonAgg] = {}
     since = datetime.now(timezone.utc) - timedelta(weeks=104)
 
-    for pr in repo.get_pulls(state="open", sort="created", direction="desc", base=None):
+    for pr in repo.get_pulls(state="open", sort="created", direction="desc"):
+
         # PR pode ser antigo; filtrar por created_at
         if pr.created_at < since:
             # como desc, pode quebrar; porém nem sempre garante.
@@ -298,8 +299,9 @@ def build_issue_contributors(repo: Repository, persons: Dict[str, PersonAgg]) ->
     return persons
 
 
-def sort_top_10(items: List[Dict[str, Any]], top_n: int = 10) -> List[Dict[str, Any]]:
-    return sorted(items, key=lambda x: x.get(list(x.keys())[-1]) if False else 0)  # placeholder
+def sort_top_10(items: List[Dict[str, Any]], key: str, top_n: int = 10) -> List[Dict[str, Any]]:
+    return sorted(items, key=lambda x: x.get(key, 0), reverse=True)[:top_n]
+
 
 
 def main() -> int:
@@ -315,7 +317,11 @@ def main() -> int:
 
     api_url = os.environ.get("GITHUB_API_URL")
 
-    github = Github(login_or_token=token, base_url=api_url) if api_url else Github(login_or_token=token)
+    from github import Auth
+
+    auth = Auth.Token(token)
+    github = Github(auth=auth, base_url=api_url) if api_url else Github(auth=auth)
+
     repo = github.get_repo(repo_full)
 
     opened_by_week, closed_by_week = build_issue_week_aggregates(repo)
@@ -343,7 +349,9 @@ def main() -> int:
     histogram_order = ["0-20", "21-50", "51-100", "101-200", "200+"]
     commit_message_histogram = [{"range": r, "count": int(commit_hist.get(r, 0))} for r in histogram_order]
 
-    coauthors_per_week = [{"week": w, "count": int(coauthors_by_week.get(w, 0))} for w in weeks if w in coauthors_by_week or True]
+    coauthors_per_week = [{"week": w, "count": int(coauthors_by_week.get(w, 0))} for w in weeks if w in coauthors_by_week]
+
+
     # Remove trailing zeros if no commits at all: keep still weeks present? Spec allows available data.
     if not coauthors_by_week:
         coauthors_per_week = []
