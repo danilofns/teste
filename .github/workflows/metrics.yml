@@ -2,8 +2,9 @@ name: metrics
 
 on:
   schedule:
-    - cron: '1 * * * 0' # domingo 03:00 UTC
+    - cron: '0 3 * * 0' # domingo 03:00 UTC
   workflow_dispatch:
+
 
 permissions:
   contents: write

@@ -325,10 +325,9 @@ def main() -> int:
     os.makedirs(base_dir, exist_ok=True)
     out_path = os.path.join(base_dir, "metrics.json")
 
-    # Failsafe anti-mock: se a coleta não gerou dados (vazio), aborta.
-    if not out.get("issues_per_week") and not out.get("commit_message_histogram"):
-        print("Erro: coleta retornou dados vazios; abortando sem escrever metrics.json.", file=sys.stderr)
-        return 3
+    # Failsafe anti-mock (ajustado): sempre escrever metrics.json.
+    # Em caso de falha parcial/0 dados, o dashboard exibirá séries vazias/0 em vez de ficar preso em mock.
+
 
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
