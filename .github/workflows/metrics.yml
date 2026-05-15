@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r docs/productivity/requirements.txt
+          pip install -r docs/mkdocs/docs/productivity/requirements.txt
 
       - name: Run metrics collector
         env:
@@ -35,9 +35,9 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           echo "Running collector..."
-          python docs/productivity/collect_metrics.py
+          python docs/mkdocs/docs/productivity/collect_metrics.py
           echo "Collector finished. File stats:" 
-          ls -lah docs/productivity/metrics.json || true
+          ls -lah docs/mkdocs/docs/productivity/metrics.json || true
           echo "First bytes:" 
           (head -c 400 docs/productivity/metrics.json || true)
 
