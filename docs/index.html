@@ -528,9 +528,11 @@
         metrics = await res.json();
       } catch (e) {
         // fallback para modo file:// com mock local
-        const mockEl = document.getElementById('metrics-mock');
+    const mockEl = document.getElementById('metrics-mock');
         if (mockEl) {
-          metrics = JSON.parse(mockEl.textContent);
+          // fallback desabilitado para evitar dashboard ficar preso em mock se o metrics.json real falhar
+          console.error('Falha ao carregar metrics.json real:', e);
+          throw e;
         } else {
           throw e;
         }

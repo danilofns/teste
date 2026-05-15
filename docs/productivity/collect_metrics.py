@@ -338,7 +338,17 @@ def main() -> int:
         print(f"Tamanho do arquivo: {sz} bytes")
     except Exception as e:
         print(f"Falha ao obter tamanho do arquivo: {e}", file=sys.stderr)
+
+    # Debug rápido do conteúdo (evita mock/arquivo vazio sem perceber)
+    try:
+        with open(out_path, "r", encoding="utf-8") as f:
+            preview = f.read(300)
+        print(f"Preview: {preview.replace('\n',' ').replace('\r',' ')}")
+    except Exception as e:
+        print(f"Falha ao ler preview: {e}", file=sys.stderr)
+
     return 0
+
 
 
 
