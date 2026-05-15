@@ -2,3 +2,12 @@ site_name: VeritasIA
 theme: 
   name: material 
 docs_dir: docs
+site_dir: site
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_images:
+  - images/logo.png
+  - images/favicon.ico
+  - images/og-image.png
