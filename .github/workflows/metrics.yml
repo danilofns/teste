@@ -52,11 +52,15 @@ jobs:
 
           git add docs/productivity/metrics.json
 
+          echo "Git status after add:" 
+          git status --porcelain
+
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
 
-          git commit -m "[bot] update productivity metrics"
+          git commit -m "[bot] update productivity metrics" 
+          echo "Committed. Pushing..."
 
           git push origin HEAD:${{ github.ref_name }}
