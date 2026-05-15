@@ -333,7 +333,13 @@ def main() -> int:
         json.dump(out, f, ensure_ascii=False, indent=2)
 
     print(f"Gerado: {out_path}")
+    try:
+        sz = os.path.getsize(out_path)
+        print(f"Tamanho do arquivo: {sz} bytes")
+    except Exception as e:
+        print(f"Falha ao obter tamanho do arquivo: {e}", file=sys.stderr)
     return 0
+
 
 
 

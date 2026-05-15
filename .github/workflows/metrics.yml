@@ -2,7 +2,7 @@ name: metrics
 
 on:
   schedule:
-    - cron: '0 3 * * 0' # domingo 03:00 UTC
+    - cron: '0 11 * * *' 
   workflow_dispatch:
 
 
@@ -36,7 +36,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
+          echo "Running collector..."
           python docs/productivity/collect_metrics.py
+          echo "Collector finished. File stats:" 
+          ls -lah docs/productivity/metrics.json || true
+          echo "First bytes:" 
+          (head -c 400 docs/productivity/metrics.json || true)
+
 
       - name: Commit updated metrics
         run: |
