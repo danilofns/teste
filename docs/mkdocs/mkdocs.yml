@@ -1,13 +1,47 @@
 site_name: VeritasIA 
+site_description: "Documentação oficial do VeritasIA"
+
 theme: 
-  name: material 
+  name: material
+  logo: images/logo.png
+  favicon: images/favicon.ico
+  custom_dir: docs/overrides
+  language: pt-BR
+
+  palette:
+    primary: custom
+    accent: custom
+
+nav:
+  - Home: 
+      - Sobre o Projeto: index.md
+      - Sobre Nós: sobrenos.md
+
+  - Projeto:
+      - Product Backlog: /docs/projeto/product-backlog.md
+      - Sprint 1: /docs/projeto/sprint-1.md
+      - Sprint 2: /docs/projeto/sprint-2.md
+      - Sprint 3: /docs/projeto/sprint-3.md
+      - Restrospectiva: /docs/projeto/retrospectiva.md
+      - Equipe: /docs/projeto/team.md
+      - Roadmap: /docs/projeto/roadmap.md
+
+  - Requisitos:
+      - Visão Geral: /docs/projeto/Requsitos.md
+    
+  - Frontend:
+      - React: /docs/frontend/react.md
+
+  - Backend:
+      - FastAPI: /docs/backend/FastAPI.md
+      - Web Scraping: /docs/backend/Scrapy.md
+      - LangChain: /docs/backend/LangChain.md
+
 docs_dir: docs
 site_dir: site
 
 extra_css:
   - stylesheets/extra.css
 
-extra_images:
-  - images/logo.png
-  - images/favicon.ico
-  - images/og-image.png
+plugins:
+  - search
