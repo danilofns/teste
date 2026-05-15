@@ -519,7 +519,7 @@
     }
 
     async function loadAndRender() {
-      const urlObj = new URL('./productivity/metrics.json', window.location.href); urlObj.searchParams.set('t', String(Date.now())); const res = await fetch(urlObj, { cache: 'no-store' });
+      const urlObj = new URL('./mkdocs/docs/productivity/metrics.json', window.location.href); urlObj.searchParams.set('t', String(Date.now())); const res = await fetch(urlObj, { cache: 'no-store' });
       try {
         if (!res.ok) throw new Error('Falha ao carregar metrics.json');
         metrics = await res.json();
