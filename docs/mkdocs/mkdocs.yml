@@ -35,8 +35,6 @@ nav:
       - FastAPI: backend/FastAPI.md
       - Web Scraping: backend/Scrapy.md
       - LangChain: backend/LangChain.md
-  - Produtividade:
-      - Dashboard: 
 
 docs_dir: docs
 site_dir: site
