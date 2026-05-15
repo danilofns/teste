@@ -1,3 +1,4 @@
+
 name: deploy-docs
 
 on:
@@ -6,11 +7,21 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
@@ -25,12 +36,16 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material
 
-      - name: Build docs
+      - name: Build site
         working-directory: docs/mkdocs
         run: |
           mkdocs build
 
-      - name: Deploy GitHub Pages
-        working-directory: docs/mkdocs
-        run: |
-          mkdocs gh-deploy --force
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/mkdocs/site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
