@@ -259,6 +259,10 @@ def main() -> int:
         print("Erro: GITHUB_REPOSITORY não definido.", file=sys.stderr)
         return 2
 
+    # Failsafe: nunca gravar dados mockados/placeholder.
+    # Se algo falhar durante a coleta, aborta com erro para que o workflow não commite JSON inválido.
+
+
     api_url = os.environ.get("GITHUB_API_URL")
 
     auth = Auth.Token(token)
@@ -321,11 +325,17 @@ def main() -> int:
     os.makedirs(base_dir, exist_ok=True)
     out_path = os.path.join(base_dir, "metrics.json")
 
+    # Failsafe anti-mock: se a coleta não gerou dados (vazio), aborta.
+    if not out.get("issues_per_week") and not out.get("commit_message_histogram"):
+        print("Erro: coleta retornou dados vazios; abortando sem escrever metrics.json.", file=sys.stderr)
+        return 3
+
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
 
     print(f"Gerado: {out_path}")
     return 0
+
 
 
 if __name__ == "__main__":

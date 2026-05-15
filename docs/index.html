@@ -528,8 +528,6 @@ async function loadAndRender() {
 const urlObj = new URL('productivity/metrics.json', window.location.href);
       // anti-cache: força download da versão mais recente
       urlObj.searchParams.set('t', String(Date.now()));
-      const url = urlObj.toString();
-      let metrics = null;
       try {
         const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) throw new Error('Falha ao carregar metrics.json');
