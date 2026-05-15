@@ -519,11 +519,8 @@
     }
 
     async function loadAndRender() {
-      const urlObj = new URL('./productivity/metrics.json', window.location.href);
-      // anti-cache: força download da versão mais recente
-      urlObj.searchParams.set('t', String(Date.now()));
+      const urlObj = new URL('./productivity/metrics.json', window.location.href); urlObj.searchParams.set('t', String(Date.now())); const res = await fetch(urlObj, { cache: 'no-store' });
       try {
-        const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) throw new Error('Falha ao carregar metrics.json');
         metrics = await res.json();
       } catch (e) {
