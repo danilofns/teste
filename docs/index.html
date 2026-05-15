@@ -4,23 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dashboard de Produtividade — VeritasIA</title>
+  <link rel="stylesheet" href="./productivity/style.css">
 
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- D3 v7 (CDN) -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
 
-  <style>
-    .unb-header { background: #011d3a; color: white; }
-    .unb-open { color: #011d3a; }
-    .unb-closed { color: #550e01; }
-    .unb-bar-open { fill: #011d3a; }
-    .unb-bar-closed { fill: #550e01; }
-    .unb-commit-hist { fill: #242424; }
-    .unb-coauthors-bar { fill: #f3eabb; stroke: #011d3a; stroke-width: 1px; }
-    .unb-grid { stroke: rgba(0,0,0,0.08); stroke-width: 1; }
-    .card { background: white; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; }
-  </style>
+
 </head>
 <body class="bg-gray-50">
   <header class="unb-header">
@@ -36,9 +27,9 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
       <section class="card p-4">
         <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">1) Issues abertas vs. fechadas (linhas)</h2>
+          <h2 class="text-lg font-semibold">8) Ranking — Top em Issues (abertas + fechadas)</h2>
         </div>
-        <div class="mt-3" id="issuesLineChart"></div>
+        <div class="mt-3 overflow-x-auto" id="topIssueContributors"></div>
       </section>
 
       <section class="card p-4">
@@ -50,16 +41,16 @@
 
       <section class="card p-4">
         <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">2) Histograma de caracteres em commits</h2>
+          <h2 class="text-lg font-semibold">7) Ranking — Top autores de PRs</h2>
         </div>
-        <div class="mt-3" id="commitHistogram"></div>
+        <div class="mt-3 overflow-x-auto" id="topPrAuthors"></div>
       </section>
 
       <section class="card p-4">
         <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">3) Co-autores por semana</h2>
+          <h2 class="text-lg font-semibold">6) Ranking — Top committers</h2>
         </div>
-        <div class="mt-3" id="coauthorsBars"></div>
+        <div class="mt-3 overflow-x-auto" id="topCommitters"></div>
       </section>
 
       <section class="card p-4 lg:col-span-2">
@@ -71,19 +62,26 @@
       </section>
 
       <section class="card p-4">
-        <h2 class="text-lg font-semibold">6) Ranking — Top committers</h2>
-        <div class="mt-3 overflow-x-auto" id="topCommitters"></div>
+        <div class="flex items-baseline justify-between gap-3">
+          <h2 class="text-lg font-semibold">3) Co-autores por semana</h2>
+        </div>
+        <div class="mt-3" id="coauthorsBars"></div>
       </section>
 
       <section class="card p-4">
-        <h2 class="text-lg font-semibold">7) Ranking — Top autores de PRs</h2>
-        <div class="mt-3 overflow-x-auto" id="topPrAuthors"></div>
+        <div class="flex items-baseline justify-between gap-3">
+          <h2 class="text-lg font-semibold">2) Histograma de caracteres em commits</h2>
+        </div>
+        <div class="mt-3" id="commitHistogram"></div>
       </section>
 
       <section class="card p-4 lg:col-span-2">
-        <h2 class="text-lg font-semibold">8) Ranking — Top em Issues (abertas + fechadas)</h2>
-        <div class="mt-3 overflow-x-auto" id="topIssueContributors"></div>
+        <div class="flex items-baseline justify-between gap-3">
+          <h2 class="text-lg font-semibold">1) Issues abertas vs. fechadas (linhas)</h2>
+        </div>
+        <div class="mt-3" id="issuesLineChart"></div>
       </section>
+
     </div>
 
     <div class="text-xs text-gray-600 mt-6">
@@ -525,7 +523,7 @@
     }
 
 async function loadAndRender() {
-const urlObj = new URL('productivity/metrics.json', window.location.href);
+const urlObj = new URL('./productivity/metrics.json', window.location.href);
       // anti-cache: força download da versão mais recente
       urlObj.searchParams.set('t', String(Date.now()));
       try {

@@ -1,0 +1,10 @@
+    .unb-header { background: #0c243d; color: white; }
+    .unb-open { color: #011d3a; }
+    .unb-closed { color: #550e01; }
+    .unb-bar-open { fill: #011d3a; }
+    .unb-bar-closed { fill: #550e01; }
+    .unb-commit-hist { fill: #242424; }
+    .unb-coauthors-bar { fill: #f3eabb; stroke: #011d3a; stroke-width: 1px; }
+    .unb-grid { stroke: rgba(0,0,0,0.08); stroke-width: 1; }
+    .card { background: rgb(238, 200, 200); border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; }
+    
