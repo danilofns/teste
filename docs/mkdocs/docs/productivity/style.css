@@ -1,5 +1,5 @@
     .unb-header {
-        background: #0c243d;
+        background: #000c1f;
         color: white;
     }
 
@@ -97,7 +97,6 @@
 
     /* remove scroll horizontal */
     .topo table {
-        width: 100%;
         table-layout: fixed;
     }
 
@@ -110,4 +109,63 @@
 
  #commitHeatmap {
     margin-top: 10%;
+}
+
+.md-header__button.md-logo img {
+    height: 50px; /* aumenta aqui */
+}
+
+.md-header__inner {
+    display: flex;
+    align-items: center;
+}
+
+.md-header__inner img {
+    display: block;
+}
+
+.md-header {
+    color: #E6E9EE;
+} 
+
+/* Container para alinhar logo e texto */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Ajusta o logo para ficar maior */
+.md-header__button.md-logo img {
+    height: 80px; /* Aumenta de 50px para 80px */
+    width: auto;
+}
+
+/* Ajusta o texto para mesma altura do logo */
+.header-texto {
+    height: 60px; /* Mesma altura do logo */
+    width: auto;
+    display: block;
+    padding-left: 20px;
+}
+
+/* Remove bordas extras se houver */
+.md-header__button.md-logo {
+    padding: 0;
+    margin: 0;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 640px) {
+    .md-header__button.md-logo img {
+        height: 50px;
+    }
+    
+    .header-texto {
+        height: 50px;
+    }
+    
+    .logo-container {
+        gap: 0.5rem;
+    }
 }

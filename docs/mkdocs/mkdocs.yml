@@ -18,6 +18,7 @@ nav:
       - Sobre Nós: sobrenos.md
 
   - Projeto:
+      - Product Backlog: projeto/product_backlog.md
       - Requisitos: projeto/Requisitos.md
       - Sprint 1: projeto/sprint1.md
       - Sprint 2: projeto/sprint2.md

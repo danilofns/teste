@@ -19,7 +19,12 @@
   <header class="unb-header">
     <div class="max-w-6xl mx-auto px-4 py-5">
       <div class="flex flex-col gap-1">
-        <h1 class="text-xl md:text-2xl font-bold">ContraDito — Produtividade (VeritasIA)</h1>
+        <div class="logo-container">
+          <a class="md-header__button md-logo">
+            <img src="../assets/Logo.png" alt="logo">
+          </a>
+          <img src="../assets/texto.png" alt="texto" class="header-texto">
+        </div>
         <p id="generatedAt" class="text-sm text-white/80">Carregando...</p>
       </div>
     </div>
@@ -527,7 +532,7 @@
         metrics = await res.json();
       } catch (e) {
         // fallback para modo file:// com mock local
-    const mockEl = document.getElementById('metrics-mock');
+        const mockEl = document.getElementById('metrics-mock');
         if (mockEl) {
           // fallback desabilitado para evitar dashboard ficar preso em mock se o metrics.json real falhar
           console.error('Falha ao carregar metrics.json real:', e);
