@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,6 +14,7 @@
 
 
 </head>
+
 <body class="bg-gray-50">
   <header class="unb-header">
     <div class="max-w-6xl mx-auto px-4 py-5">
@@ -22,74 +24,68 @@
       </div>
     </div>
   </header>
-
-  <main class="max-w-6xl mx-auto px-4 py-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+  <main class="max-w-7xl mx-auto px-4 py-6"> <!-- TOPO -->
+    <div class="topo-container"> <!-- 8 -->
+      <section class="card p-4 topo topo-full">
+        <div class="flex items-baseline justify-between gap-3">
+          <h2 class="text-lg font-semibold"> Ranking - Top Issues (Abertas/Fechadas) </h2>
+        </div>
+        <div class="mt-3" id="topIssueContributors"></div>
+      </section> <!-- LINHA INFERIOR -->
+      <div class="topo-grid"> <!-- 7 -->
+        <section class="card p-4 topo">
+          <div class="flex items-baseline justify-between gap-3">
+            <h2 class="text-lg font-semibold"> Ranking — Top autores de PRs </h2>
+          </div>
+          <div class="mt-3" id="topPrAuthors"></div>
+        </section> <!-- 6 -->
+        <section class="card p-4 topo">
+          <div class="flex items-baseline justify-between gap-3">
+            <h2 class="text-lg font-semibold"> Ranking — Top committers </h2>
+          </div>
+          <div class="mt-3" id="topCommitters"></div>
+        </section>
+      </div>
+    </div> <!-- RESTANTE -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 auto-rows-auto"> <!-- 4 -->
       <section class="card p-4">
         <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">8) Ranking — Top em Issues (abertas + fechadas)</h2>
-        </div>
-        <div class="mt-3 overflow-x-auto" id="topIssueContributors"></div>
-      </section>
-
-      <section class="card p-4">
-        <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">5) Issues abertas/fechadas (barras empilhadas)</h2>
-        </div>
-        <div class="mt-3" id="issuesStackedBars"></div>
-      </section>
-
-      <section class="card p-4">
-        <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">7) Ranking — Top autores de PRs</h2>
-        </div>
-        <div class="mt-3 overflow-x-auto" id="topPrAuthors"></div>
-      </section>
-
-      <section class="card p-4">
-        <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">6) Ranking — Top committers</h2>
-        </div>
-        <div class="mt-3 overflow-x-auto" id="topCommitters"></div>
-      </section>
-
-      <section class="card p-4 lg:col-span-2">
-        <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">4) Mapa de calor — Horário dos commits (Seg–Dom)</h2>
+          <h2 class="text-lg font-semibold"> Mapa de calor — Horário dos commits (Seg–Dom) </h2>
         </div>
         <div class="mt-3 overflow-x-auto" id="commitHeatmap"></div>
-        <p class="text-xs text-gray-600 mt-2">Tooltip: dia/hora e quantidade de commits.</p>
-      </section>
-
+        <p class="text-xs text-gray-600 mt-2"> Quantidade de commits. </p>
+      </section> <!-- 5 -->
       <section class="card p-4">
         <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">3) Co-autores por semana</h2>
+          <h2 class="text-lg font-semibold"> Issues abertas/fechadas (barras empilhadas) </h2>
+        </div>
+        <div class="mt-3" id="issuesStackedBars"></div>
+      </section> <!-- 3 -->
+      <section class="card p-4">
+        <div class="flex items-baseline justify-between gap-3">
+          <h2 class="text-lg font-semibold"> Co-autores por semana </h2>
         </div>
         <div class="mt-3" id="coauthorsBars"></div>
-      </section>
-
+      </section> <!-- 2 -->
       <section class="card p-4">
         <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">2) Histograma de caracteres em commits</h2>
+          <h2 class="text-lg font-semibold"> Histograma de caracteres em commits </h2>
         </div>
         <div class="mt-3" id="commitHistogram"></div>
-      </section>
-
+      </section> <!-- 1 -->
       <section class="card p-4 lg:col-span-2">
         <div class="flex items-baseline justify-between gap-3">
-          <h2 class="text-lg font-semibold">1) Issues abertas vs. fechadas (linhas)</h2>
+          <h2 class="text-lg font-semibold"> Issues abertas vs. fechadas (linhas) </h2>
         </div>
         <div class="mt-3" id="issuesLineChart"></div>
       </section>
-
     </div>
-
     <div class="text-xs text-gray-600 mt-6">
-      <p>Fonte: dados públicos do repositório via GitHub API (workflow semanal).</p>
+      <p> Fonte: dados públicos do repositório via GitHub API (workflow semanal). </p>
     </div>
   </main>
 
-<script type="application/json" id="metrics-mock">
+  <script type="application/json" id="metrics-mock">
 {
   "generated_at": "(mock)",
   "repository": "(mock)",
@@ -267,7 +263,7 @@
       bars.append('rect')
         .attr('width', x.bandwidth())
         .attr('height', d => innerH - y(d.closed))
-        .attr('y', d => y(d.opened + d.closed) )
+        .attr('y', d => y(d.opened + d.closed))
         .attr('fill', colors.closed);
 
       svg.append('text')
@@ -369,7 +365,7 @@
 
       const cellSize = 18;
       const hours = d3.range(0, 24);
-      const days = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+      const days = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
 
       const margin = { top: 30, right: 20, bottom: 30, left: 50 };
       const w = margin.left + (hours.length * cellSize) + margin.right;
@@ -407,7 +403,7 @@
         .data(hours)
         .enter()
         .append('text')
-        .attr('x', (d, i) => i * cellSize + cellSize/2)
+        .attr('x', (d, i) => i * cellSize + cellSize / 2)
         .attr('y', 20)
         .style('font-size', '10px')
         .style('text-anchor', 'middle')
@@ -429,13 +425,13 @@
 
           // Tooltip apenas se cnt>0? Spec diz que tooltip mostra quantidade.
           g.selectAll('rect')
-            .filter(function(){ return false; });
+            .filter(function () { return false; });
         }
       }
 
       // Attach events efficiently by selecting all rects
       g.selectAll('rect')
-        .on('mousemove', function(event) {
+        .on('mousemove', function (event) {
           const rectX = +this.getAttribute('x');
           const rectY = +this.getAttribute('y');
           const hour = rectX / cellSize;
@@ -451,7 +447,7 @@
             .style('left', (event.pageX + 12) + 'px')
             .style('top', (event.pageY - 10) + 'px');
         })
-        .on('mouseout', function() {
+        .on('mouseout', function () {
           tip.style('opacity', 0);
         });
 
@@ -519,11 +515,11 @@
 
     function personCell(row, crown) {
       const avatar = row.avatar_url ? `<img src="${row.avatar_url}" alt="${row.name}" class="w-7 h-7 rounded-full inline-block mr-2"/>` : '';
-      return `<div class="flex items-center gap-2">${crown ? '<span class="mr-1">'+crown+'</span>' : ''}${avatar}<span class="font-medium">${row.name || row.username}</span><span class="text-gray-500">@${row.username}</span></div>`;
+      return `<div class="flex items-center gap-2">${crown ? '<span class="mr-1">' + crown + '</span>' : ''}${avatar}<span class="font-medium">${row.name || row.username}</span><span class="text-gray-500">@${row.username}</span></div>`;
     }
 
-async function loadAndRender() {
-const urlObj = new URL('./productivity/metrics.json', window.location.href);
+    async function loadAndRender() {
+      const urlObj = new URL('./productivity/metrics.json', window.location.href);
       // anti-cache: força download da versão mais recente
       urlObj.searchParams.set('t', String(Date.now()));
       try {
@@ -596,7 +592,7 @@ const urlObj = new URL('./productivity/metrics.json', window.location.href);
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
-        loadAndRender().catch(() => {});
+        loadAndRender().catch(() => { });
       }, 200);
     });
 
@@ -611,5 +607,5 @@ const urlObj = new URL('./productivity/metrics.json', window.location.href);
     });
   </script>
 </body>
-</html>
 
+</html>
