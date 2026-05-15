@@ -343,7 +343,8 @@ def main() -> int:
     try:
         with open(out_path, "r", encoding="utf-8") as f:
             preview = f.read(300)
-        print(f"Preview: {preview.replace('\n',' ').replace('\r',' ')}")
+        preview_clean = preview.replace("\n", " ").replace("\r", " ")
+        print(f"Preview: {preview_clean}")
     except Exception as e:
         print(f"Falha ao ler preview: {e}", file=sys.stderr)
 
