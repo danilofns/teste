@@ -5,7 +5,7 @@ theme:
   name: material
   logo: images/logo.png
   favicon: images/favicon.ico
-  custom_dir: docs/overrides
+  custom_dir: overrides
   language: pt-BR
 
   palette:
@@ -18,24 +18,23 @@ nav:
       - Sobre Nós: sobrenos.md
 
   - Projeto:
-      - Product Backlog: /docs/projeto/product-backlog.md
-      - Sprint 1: /docs/projeto/sprint-1.md
-      - Sprint 2: /docs/projeto/sprint-2.md
-      - Sprint 3: /docs/projeto/sprint-3.md
-      - Restrospectiva: /docs/projeto/retrospectiva.md
-      - Equipe: /docs/projeto/team.md
-      - Roadmap: /docs/projeto/roadmap.md
+      - Sprint 1: prrojeto/sprint-1.md
+      - Sprint 2: projeto/sprint-2.md
+      - Sprint 3: projeto/sprint-3.md
+      - Restrospectiva: projeto/retrospectiva.md
+      - Equipe: projeto/team.md
+      - Roadmap: projeto/roadmap.md
 
   - Requisitos:
-      - Visão Geral: /docs/projeto/Requsitos.md
+      - Visão Geral: projeto/Requsitos.md
     
   - Frontend:
-      - React: /docs/frontend/react.md
+      - React: frontend/react.md
 
   - Backend:
-      - FastAPI: /docs/backend/FastAPI.md
-      - Web Scraping: /docs/backend/Scrapy.md
-      - LangChain: /docs/backend/LangChain.md
+      - FastAPI: backend/FastAPI.md
+      - Web Scraping: backend/Scrapy.md
+      - LangChain: backend/LangChain.md
 
 docs_dir: docs
 site_dir: site
