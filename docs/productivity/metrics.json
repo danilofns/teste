@@ -1,33 +1,81 @@
 {
-  "generated_at": "(mock)",
-  "repository": "(mock)",
-  "issues_per_week": [
-    { "week": "2025-W01", "opened": 5, "closed": 3 },
-    { "week": "2025-W02", "opened": 2, "closed": 4 }
-  ],
+  "generated_at": "2026-05-15T14:29:04Z",
+  "repository": "danilofns/teste",
+  "issues_per_week": [],
   "commit_message_histogram": [
-    { "range": "0-20", "count": 2 },
-    { "range": "21-50", "count": 3 },
-    { "range": "51-100", "count": 4 },
-    { "range": "101-200", "count": 1 },
-    { "range": "200+", "count": 0 }
+    {
+      "range": "0-20",
+      "count": 18
+    },
+    {
+      "range": "21-50",
+      "count": 0
+    },
+    {
+      "range": "51-100",
+      "count": 0
+    },
+    {
+      "range": "101-200",
+      "count": 0
+    },
+    {
+      "range": "200+",
+      "count": 0
+    }
   ],
-  "coauthors_per_week": [
-    { "week": "2025-W01", "count": 2 },
-    { "week": "2025-W02", "count": 1 }
-  ],
+  "coauthors_per_week": [],
   "commit_heatmap": [
-    { "day": 0, "hour": 10, "count": 3 },
-    { "day": 2, "hour": 15, "count": 1 }
+    {
+      "day": 3,
+      "hour": 22,
+      "count": 1
+    },
+    {
+      "day": 3,
+      "hour": 23,
+      "count": 6
+    },
+    {
+      "day": 4,
+      "hour": 0,
+      "count": 1
+    },
+    {
+      "day": 4,
+      "hour": 13,
+      "count": 4
+    },
+    {
+      "day": 4,
+      "hour": 14,
+      "count": 6
+    }
   ],
   "top_committers": [
-    { "username": "user1", "name": "User One", "commits": 10 }
+    {
+      "username": "danilofns",
+      "name": "Danilo Fernandes",
+      "commits": 18,
+      "avatar_url": "https://avatars.githubusercontent.com/u/190551570?v=4"
+    }
   ],
   "top_pr_authors": [
-    { "username": "user1", "name": "User One", "prs_opened": 3 }
+    {
+      "username": "danilofns",
+      "name": "Danilo Fernandes",
+      "prs_opened": 0,
+      "avatar_url": "https://avatars.githubusercontent.com/u/190551570?v=4"
+    }
   ],
   "top_issue_contributors": [
-    { "username": "user1", "name": "User One", "opened": 2, "closed": 1, "total": 3 }
+    {
+      "username": "danilofns",
+      "name": "Danilo Fernandes",
+      "opened": 0,
+      "closed": 0,
+      "total": 0,
+      "avatar_url": "https://avatars.githubusercontent.com/u/190551570?v=4"
+    }
   ]
 }
-
