@@ -1,7 +1,6 @@
 name: metrics
 
 on:
-  schedule:
   workflow_dispatch: 
 
 
