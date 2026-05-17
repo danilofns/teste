@@ -4,8 +4,9 @@ on:
   workflow_dispatch: 
 
 
-permissions:
-  contents: write
+permissions:  
+  contents: write 
+  issues: read
 
 jobs:
   build-metrics:
