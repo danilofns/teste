@@ -1,31 +1,34 @@
+    body{
+        background-color: #FAF9F9;
+    }
     .unb-header {
         background: #000c1f;
-        color: white;
+        color: #FFFFFF;
     }
 
     .unb-open {
-        color: #011d3a;
+        color: 402664;
     }
 
     .unb-closed {
-        color: #550e01;
+        color: #FF000A;
     }
 
     .unb-bar-open {
-        fill: #011d3a;
+        fill: #402664;
     }
 
     .unb-bar-closed {
-        fill: #550e01;
+        fill: #FF000A;
     }
 
     .unb-commit-hist {
-        fill: #242424;
+        fill: #402664;
     }
 
     .unb-coauthors-bar {
-        fill: #f3eabb;
-        stroke: #011d3a;
+        fill: #402664;
+        stroke: #B0BACB;
         stroke-width: 1px;
     }
 
@@ -35,15 +38,8 @@
     }
 
     .card {
-        background: rgb(238, 200, 200);
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        border-radius: 12px;
-    }
-
-
-    .card {
-        background: rgb(238, 200, 200);
-        border: 1px solid rgba(0, 0, 0, 0.08);
+        background: #FFFFFF;
+        border: 1px solid #B0BACB;
         border-radius: 12px;
     }
 
