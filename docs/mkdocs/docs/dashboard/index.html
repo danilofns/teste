@@ -30,7 +30,7 @@
     </div>
   </header>
   <main class="max-w-7xl mx-auto px-4 py-6"> <!-- TOPO -->
-      <div class="topo-grid"> <!-- 7 -->
+    <div class="topo-container"> <!-- 8 -->
         <section class="card p-4 topo">
           <div class="flex items-baseline justify-between gap-3">
             <h2 class="text-lg font-semibold"> Ranking — Top committers </h2>
@@ -47,16 +47,26 @@
         <div class="mt-3 overflow-x-auto" id="commitHeatmap"></div>
         <p class="text-xs text-gray-600 mt-2"> Quantidade de commits. </p>
       </section> <!-- 5 -->
+
       <section class="card p-4">
         <div class="flex items-baseline justify-between gap-3">
           <h2 class="text-lg font-semibold"> Issues abertas/fechadas (barras empilhadas) </h2>
         </div>
         <div class="mt-3" id="issuesStackedBars"></div>
       </section> <!-- 3 -->
+      
+      <section class="card p-4">
+        <div class="flex items-baseline justify-between gap-3">
+          <h2 class="text-lg font-semibold"> Co-autores por semana </h2>
+        </div>
+        <div class="mt-3" id="coauthorsBars"></div>
+      </section> <!-- 2 -->
+      <section class="card p-4">
         <div class="flex items-baseline justify-between gap-3">
           <h2 class="text-lg font-semibold"> Histograma de caracteres em commits </h2>
         </div>
-        <div class="mt-3" id="commitHistogram"></div> <!-- 1 -->
+        <div class="mt-3" id="commitHistogram"></div>
+      </section> <!-- 1 -->
       <section class="card p-4 lg:col-span-2">
         <div class="flex items-baseline justify-between gap-3">
           <h2 class="text-lg font-semibold"> Issues abertas vs. fechadas (linhas) </h2>
@@ -105,14 +115,13 @@
 
   <script>
     const colors = {
-
-      header: '#011d3a',
-      open: '#011d3a',
-      closed: '#550e01',
-      hist: '#242424',
-      gold: '#f3eabb',
-      heat0: '#74a5b6',
-      heatMax: '#003366',
+      header: '#000c1f',
+      open: '#502f7d',
+      closed: '#FF000A',
+      hist: '#000c1f',
+      gold: '#502f7d',
+      heat0: '#d1c3e3',
+      heatMax: '#502f7d',
       grid: 'rgba(0,0,0,0.08)'
     };
 
@@ -287,7 +296,7 @@
         .attr('width', x.bandwidth())
         .attr('y', d => y(d.count))
         .attr('height', d => innerH - y(d.count))
-        .attr('fill', colors.hist);
+        .attr('fill', "#502f7d");
 
       svg.append('text')
         .attr('x', margin.left)
@@ -372,7 +381,7 @@
         .text('Intensidade por horário (UTC)');
 
       // axes labels
-      svg.append('g').attr('transform', `translate(${margin.left - 10},${margin.top})`)
+      svg.append('g').attr('transform', `translate(${margin.left - 30},${margin.top})`)
         .selectAll('text')
         .data(days)
         .enter()
@@ -548,28 +557,6 @@
         ],
         { limit: 10 }
       );
-
-      // 7
-      renderRankingTable('topPrAuthors', metrics.top_pr_authors || [],
-        [
-          { key: 'position', label: '#' },
-          { key: 'person', label: 'Autor', renderPerson: (row, crown) => personCell(row, crown) },
-          { key: 'prs_opened', label: 'PRs abertas' },
-        ],
-        { limit: 10 }
-      );
-
-      // 8
-      renderRankingTable('topIssueContributors', metrics.top_issue_contributors || [],
-        [
-          { key: 'position', label: '#' },
-          { key: 'person', label: 'Usuário', renderPerson: (row, crown) => personCell(row, crown) },
-          { key: 'opened', label: 'Abertas' },
-          { key: 'closed', label: 'Fechadas' },
-          { key: 'total', label: 'Total' },
-        ],
-        { limit: 10 }
-      );
     }
 
     // Responsive rerender on resize (debounced)
@@ -589,6 +576,11 @@
         msg.textContent = `Erro ao carregar métricas: ${err.message}`;
         container.prepend(msg);
       }
+    });
+  </script>
+</body>
+
+</html>
     });
   </script>
 </body>
