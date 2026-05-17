@@ -7,7 +7,8 @@
     }
 
     .unb-open {
-        color: 402664;
+        color: #502f7d;
+        color: #74a5b6;
     }
 
     .unb-closed {
@@ -15,7 +16,7 @@
     }
 
     .unb-bar-open {
-        fill: #402664;
+        fill: #502f7d;
     }
 
     .unb-bar-closed {
@@ -23,7 +24,7 @@
     }
 
     .unb-commit-hist {
-        fill: #402664;
+        fill: #502f7d;
     }
 
     .unb-coauthors-bar {
