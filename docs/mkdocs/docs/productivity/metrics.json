@@ -1,15 +1,21 @@
 {
-  "generated_at": "2026-05-17T20:30:34Z",
+  "generated_at": "2026-05-17T22:14:02Z",
   "repository": "danilofns/teste",
-  "issues_per_week": [],
+  "issues_per_week": [
+    {
+      "week": "2026-W20",
+      "opened": 1,
+      "closed": 0
+    }
+  ],
   "commit_message_histogram": [
     {
       "range": "0-20",
-      "count": 39
+      "count": 45
     },
     {
       "range": "21-50",
-      "count": 1
+      "count": 3
     },
     {
       "range": "51-100",
@@ -69,20 +75,30 @@
     {
       "day": 6,
       "hour": 20,
+      "count": 7
+    },
+    {
+      "day": 6,
+      "hour": 21,
       "count": 4
+    },
+    {
+      "day": 6,
+      "hour": 22,
+      "count": 1
     }
   ],
   "top_committers": [
     {
       "username": "danilofns",
       "name": "Danilo Fernandes",
-      "commits": 40,
+      "commits": 47,
       "avatar_url": "https://avatars.githubusercontent.com/u/190551570?v=4"
     },
     {
       "username": "github-actions[bot]",
       "name": "github-actions[bot]",
-      "commits": 1,
+      "commits": 2,
       "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4"
     }
   ],
@@ -104,9 +120,9 @@
     {
       "username": "danilofns",
       "name": "Danilo Fernandes",
-      "opened": 0,
+      "opened": 1,
       "closed": 0,
-      "total": 0,
+      "total": 1,
       "avatar_url": "https://avatars.githubusercontent.com/u/190551570?v=4"
     },
     {
