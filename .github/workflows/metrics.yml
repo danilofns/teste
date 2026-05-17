@@ -3,10 +3,8 @@ name: metrics
 on:
   workflow_dispatch: 
 
-
-permissions:  
-  contents: write 
-  issues: read
+ 
+permissions: write-all
 
 jobs:
   build-metrics:
