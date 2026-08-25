@@ -6,7 +6,6 @@ theme:
   name: material
   features:
     - navigation.tabs
-  custom_dir: overrides
   language: pt-BR
 
 nav:
