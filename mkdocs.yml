@@ -11,3 +11,4 @@ theme:
 
 nav:
   - Home: index.md
+  - Equipe: equipe.md
