@@ -1,4 +1,13 @@
 site_name: Cntrl Alt Del
 site_url: https://github.com/danilofns/teste
+docs_dir: docs
+
 theme:
   name: material
+  features:
+    - navigation.tabs
+  custom_dir: overrides
+  language: pt-BR
+
+nav:
+  - Home: index.md
