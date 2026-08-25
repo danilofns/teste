@@ -1,3 +1,5 @@
+repo_name: Cntrl Alt Del
+repo_url: https://github.com/danilofns/teste
 site_name: Cntrl Alt Del
 site_url: https://github.com/danilofns/teste
 docs_dir: docs
@@ -8,6 +10,9 @@ theme:
     - navigation.tabs
   language: pt-BR
 
+extra_css:
+  - stylesheets/style.css
+  
 nav:
   - Home: index.md
   - Equipe: equipe.md
