@@ -12,7 +12,7 @@ theme:
 
 extra_css:
   - stylesheets/style.css
-  
+
 nav:
   - Home: index.md
-  - Equipe: equipe.md
+  - Participantes: participantes.md
