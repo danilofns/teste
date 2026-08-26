@@ -15,4 +15,4 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Participantes: participantes.md
+  - Participantes: participantes/participantes.md
