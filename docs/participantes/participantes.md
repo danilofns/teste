@@ -1,4 +1,3 @@
-<h2 align="center">Equipe</h2>
 
 <table align="center">
 <tr>

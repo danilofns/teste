@@ -16,3 +16,10 @@ extra_css:
 nav:
   - Home: index.md
   - Participantes: participantes/participantes.md
+  - Canvas:
+    - Canvas: Canvas/canvas.md
+    - Canvas 2: Canvas/resolucoesguidingquestions.md
+  - Dados:
+    - Dados: Dados/dados.md
+  - Modelo:
+    - Modelo: Modelo/modelo.md
