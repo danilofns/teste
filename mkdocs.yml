@@ -6,8 +6,31 @@ docs_dir: docs
 
 theme:
   name: material
+  palette:
+    # Modo claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para o modo escuro
+    # Modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para o modo claro
   features:
+    - navigation.instant
+    - navigation.tracking
     - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
   language: pt-BR
 
 extra_css:
@@ -18,7 +41,7 @@ nav:
   - Participantes: participantes/participantes.md
   - Canvas:
     - Canvas: canvas/canvas.md
-    - Canvas 2: canvas/resolucoesguidingquestions.md
+    - Canvas 2: canvas/guiding-questions.md
   - Dados:
     - Dados: dados/dados.md
   - Modelo:
