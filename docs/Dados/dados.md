@@ -1,17 +1,19 @@
-Para ensinar o modelo de Machine Learning, dados públicos das **Candidaturas de 2026** serão utilizados, e então, será feito o cruzamento de dados junto com **propostas de governo** de todos os dados publicados. 
+Para a realização do **Fine-Tunning** do modelo de Machine Learning (ML), dados públicos das **Candidaturas de 2026** serão utilizados. Será feito o cruzamento de dados junto com **propostas de governo** de todos os dados publicados, que estão dispóniveis em: 
 
-As **propostas de governo** tem o formato como: .pdf, havendo a necessidade de converte-los para .txt, para que a leitura seja possível de ser feita, sem a necessidade de programas externos.
+[Tribunal Superior Eleitoral](https://dadosabertos.tse.jus.br/dataset/candidatos-2026)
 
-Todos os dados são públicos em: [Tribunal Superior Eleitoral](https://dadosabertos.tse.jus.br/dataset/candidatos-2026)
-
+As **propostas de governo** tem o formato como: **.pdf**
+Pipeline de extração:
+```Localizaçar PDF -> Extrair .txt```
 
 ## Converter propostas
-
-Para realizar a conversão das **propostas de governo**, será utilizado a biblioteca: **pypdf** que faz a leitura do PDF e converte ele para o formato .txt e salvo em um arquivo de leitura, como: .csv, .pandas ou .json **(Ainda não decidido)**
 
 
 **PYDF**: O intuito principal do pypdf é permitir que programadores realizem operações automatizadas em documentos PDF diretamente pelo código, sem precisar de programas externos.
 
+A conversão das **propostas de governo** é utilizado a biblioteca: **PYPDF**, onde realiza a leitura completa e converte para o formato **.txt**.
+
+É utilizado **consulta candidato** também disponível no dataset do **TSE**, onde é feito um cruzamento de dados com as propostas coletadas.
 
 ## Cruzamento de dados
 
@@ -35,7 +37,6 @@ Para realizar a conversão das **propostas de governo**, será utilizado a bibli
 ```
 ---
 
-
 ### Coleta
 
 Formato em que o .csv do **(Tribunal Superior Eleitoral) TSE** salva os respectivos dados dos candidatos: 
@@ -49,19 +50,14 @@ O cruzamento de dados será feito com os dados coletados:
 
 > "NR_CANDIDATO";"NM_CANDIDATO";"NM_URNA_CANDIDATO";"DS_CARGO"
 
-e após isso, com as propostas convertidas para .txt e salvas em .csv, .pandas ou .json, será possível fazer o cruzamento da proposta com o nome do candidato.
+Após isso, com as propostas convertidas para **.txt** e salvas em **.csv**, será possível fazer o cruzamento da proposta com o nome do candidato.
 
 
 
 ## Saída
 
-Formato exemplo que é esperado para a saída: **(Exemplo, não decidido)**
+Formato exemplo que é esperado para a saída **.csv**:
 
-``` json
-[
-    "NR_CANDIDATO": NR_CANDIDATO
-    "NM_CANDIDATO": NM_CANDIDATO
-    "NM_URNA_CANDIDATO": NM_URNA_CANDIDATO
-    "PROPOSTA": ["Proposta coletada"]
-]
+``` csv
+DS_CARGO;NM_UE;SQ_CANDIDATO;NM_CANDIDATO;NM_URNA_CANDIDATO;PROPOSTA
 ```
