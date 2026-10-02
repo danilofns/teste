@@ -45,8 +45,8 @@ nav:
   - Home: index.md
 
   - Canvas:
-      - Canvas: canvas/canvas.md
-      - Guiding Questions: canvas/guiding-questions.md
+      - Canvas: Canvas/canvas.md
+      - Guiding Questions: Canvas/guiding-questions.md
 
   - Projeto:
       - Dados: projeto/dados.md
