@@ -1,3 +1,11 @@
 .md-header, .md-tabs {
     background-color: #111633;
 }
+
+
+@import url('https://cdnfonts.com');
+
+:root, [data-md-color-scheme="default"], [data-md-color-scheme="slate"] {
+  --md-text-font: "Minha Fonte Customizada", sans-serif;
+  --md-code-font: "Sua Fonte de Codigo", monospace;
+}
