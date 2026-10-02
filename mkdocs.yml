@@ -17,9 +17,9 @@ nav:
   - Home: index.md
   - Participantes: participantes/participantes.md
   - Canvas:
-    - Canvas: Canvas/canvas.md
-    - Canvas 2: Canvas/resolucoesguidingquestions.md
+    - Canvas: canvas/canvas.md
+    - Canvas 2: canvas/resolucoesguidingquestions.md
   - Dados:
-    - Dados: Dados/dados.md
+    - Dados: dados/dados.md
   - Modelo:
-    - Modelo: Modelo/modelo.md
+    - Modelo: modelo/modelo.md
