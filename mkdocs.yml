@@ -1,11 +1,15 @@
-repo_name: Cntrl Alt Del
+repo_name: Ctrl Alt Del
 repo_url: https://github.com/danilofns/teste
-site_name: Cntrl Alt Del
+
+site_name: Ctrl Alt Del
 site_url: https://github.com/danilofns/teste
+
 docs_dir: docs
 
 theme:
   name: material
+  language: pt-BR
+
   palette:
     # Modo claro
     - media: "(prefers-color-scheme: light)"
@@ -15,6 +19,7 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Mudar para o modo escuro
+
     # Modo escuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -23,6 +28,7 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Mudar para o modo claro
+
   features:
     - navigation.instant
     - navigation.tracking
@@ -31,18 +37,22 @@ theme:
     - toc.integrate
     - search.suggest
     - search.highlight
-  language: pt-BR
 
 extra_css:
   - stylesheets/style.css
 
 nav:
   - Home: index.md
-  - Participantes: participantes/participantes.md
+
+  - Participantes:
+      - Participantes: participantes/participantes.md
+
   - Canvas:
-    - Canvas: canvas/canvas.md
-    - Quests: canvas/guiding-questions.md
+      - Canvas: canvas/canvas.md
+      - Guiding Questions: canvas/guiding-questions.md
+
   - Dados:
-    - Dados: dados/dados.md
+      - Dados: dados/dados.md
+
   - Modelo:
-    - Modelo: modelo/modelo.md
+      - Modelo: modelo/modelo.md
