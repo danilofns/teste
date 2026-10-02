@@ -45,14 +45,12 @@ nav:
   - Home: index.md
 
   - Participantes:
-      - Participantes: participantes/participantes.md
+      - Participantes: equipe.md
 
   - Canvas:
       - Canvas: canvas/canvas.md
       - Guiding Questions: canvas/guiding-questions.md
 
-  - Dados:
-      - Dados: dados/dados.md
-
-  - Modelo:
-      - Modelo: modelo/modelo.md
+  - Projeto:
+      - Dados: projeto/dados.md
+      - Modelo: projeto/modelo.md
