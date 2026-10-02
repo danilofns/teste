@@ -44,9 +44,6 @@ extra_css:
 nav:
   - Home: index.md
 
-  - Participantes:
-      - Participantes: equipe.md
-
   - Canvas:
       - Canvas: canvas/canvas.md
       - Guiding Questions: canvas/guiding-questions.md
@@ -54,3 +51,8 @@ nav:
   - Projeto:
       - Dados: projeto/dados.md
       - Modelo: projeto/modelo.md
+
+  - Arquitetura: projeto/arquitetura.md
+  
+  - Participantes:
+      - Participantes: equipe.md
